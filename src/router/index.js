@@ -50,6 +50,7 @@ export const mainRouter = {
     { path: 'dragtext', name: 'dragtext', component: () => import('../modules/pages/dragtext.vue') },
     { path: 'file-upload', name: 'file-upload', component: () => import('../modules/pages/file-upload.vue') },
     { path: 'article-publish', name: 'article-publish', component: () => import('../modules/pages/article-publish') },
+    { path: 'personal-information', name: 'personal-information', component: () => import('../modules/pages/personal-information') },
   ],
 };
 
