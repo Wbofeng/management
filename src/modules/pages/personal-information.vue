@@ -40,35 +40,38 @@
 </template>
 
 <script>
-  const phoneNumber = document.getElementsByClassName('message-input-number')[0];
-  function show() {
-    const p = document.getElementsByClassName('message-error');
-    p[0].style.display = 'block';
-    phoneNumber.style.border = '1.5px solid red';
-  }
-  function hide() {
-    const p = document.getElementsByClassName('message-error');
-    p[0].style.display = 'none';
-    phoneNumber.style.border = '1px solid #ccc';
-  }
-  phoneNumber.addEventListener('keyup', () => {
-    const text = phoneNumber.value;
-    if (text !== '') {
-      const str = /^[0-9]+$/;
-      if (!str.test(text)) {
-        show();
-      } else {
-        hide();
-      }
+const phoneNumber = document.getElementsByClassName('message-input-number')[0];
+function show() {
+  const p = document.getElementsByClassName('message-error');
+  p[0].style.display = 'block';
+  phoneNumber.style.border = '1.5px solid red';
+}
+function hide() {
+  const p = document.getElementsByClassName('message-error');
+  p[0].style.display = 'none';
+  phoneNumber.style.border = '1px solid #ccc';
+}
+phoneNumber.addEventListener('keyup', () => {
+  const text = phoneNumber.value;
+  if (text !== '') {
+    const str = /^[0-9]+$/;
+    if (!str.test(text)) {
+      show();
     } else {
       hide();
     }
-  });
-  const left = document.getElementsByClassName('message-input-number')[0].offsetLeft;
-  const p = document.getElementsByClassName('message-error')[0];
-  p.style.left = left + 'px'; // eslint-disable-line prefer-template
+  } else {
+    hide();
+  }
+});
+const left = document.getElementsByClassName('message-input-number')[0]
+  .offsetLeft;
+const p = document.getElementsByClassName('message-error')[0];
+p.style.left = left + 'px'; // eslint-disable-line prefer-template
 </script>
-<css>
+
+<<style scoped>
+
   *{
   margin:0;
   padding:0;
@@ -158,5 +161,6 @@
   .message-keep:hover{
   background-color:rgba(14,131,248,1);
   }
+</style>
 
-</css>
+

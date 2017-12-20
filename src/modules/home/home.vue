@@ -84,8 +84,10 @@
                   <Icon type="arrow-down-b"></Icon>
                 </a>
                 <DropdownMenu slot="list">
-                  <DropdownItem name="ownSpace">个人中心</DropdownItem>
-                  <DropdownItem name="loginout" @click="quit('signin')">退出登录</DropdownItem>
+                  <DropdownItem name="ownSpace" @click="linkto('personal-information','personal-information','个人中心','3-2')">个人中心</DropdownItem>
+                  <router-link to="/">
+                  <DropdownItem name="loginout">退出登录</DropdownItem>
+                  </router-link>
                 </DropdownMenu>
               </Dropdown>
               <Avatar style="background: #619fe7;margin-left: 10px;"></Avatar>
@@ -191,11 +193,6 @@ export default {
       this.$store.state.currentPath.splice(1);
       this.$store.state.currentPath.push({ path, name, title, pageindex });
       this.showindex = pageindex;
-    },
-    quit(path) {
-      this.$router.push(
-        { name: path },
-      );
     },
   },
   mounted() {
