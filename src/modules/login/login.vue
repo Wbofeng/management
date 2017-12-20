@@ -38,7 +38,7 @@
         <div class="form-con">
           <Form ref="loginForm" :model="form" :rules="rules">
             <FormItem prop="userName">
-              <Input v-model="form.userName">
+              <Input v-bind="form.userName">
                 <span slot="prepend">
                   <Icon :size="16" type="person"></Icon>
                 </span>
