@@ -32,6 +32,7 @@ import Vuex from 'vuex';
 import iView from 'iview';
 import VueI18n from 'vue-i18n';
 import VueRouter from 'vue-router';
+import vueResource from 'vue-resource';
 import 'iview/dist/styles/iview.css';
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-default/index.css';
@@ -46,6 +47,7 @@ Vue.use(Vuex);
 Vue.use(VueI18n);
 Vue.use(iView);
 Vue.use(ElementUI);
+Vue.use(vueResource);
 
 Vue.config.lang = 'zh-CN';
 

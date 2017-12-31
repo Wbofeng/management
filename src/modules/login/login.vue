@@ -38,7 +38,7 @@
         <div class="form-con">
           <Form ref="loginForm" :model="form" :rules="rules">
             <FormItem prop="userName">
-              <Input v-bind="form.userName">
+              <Input v-model="form.userName">
                 <span slot="prepend">
                   <Icon :size="16" type="person"></Icon>
                 </span>
@@ -55,7 +55,7 @@
               <Button @click="handleSubmit" type="primary" long>登录</Button>
             </FormItem>
           </Form>
-        <p class="login-tip">输入任意用户名和密码即可</p>
+        <p class="login-tip" @click="test">输入任意用户名和密码即可</p>
         </div>
       </Card>
     </div>
@@ -69,14 +69,11 @@ export default {
       form: {
         userName: 'iview_admin',
         password: '123456',
+        someData: '',
       },
       rules: {
-        userName: [
-            { required: true, message: '账号不能为空', trigger: 'blur' },
-        ],
-        password: [
-            { required: true, message: '密码不能为空', trigger: 'blur' },
-        ],
+        userName: [{ required: true, message: '账号不能为空', trigger: 'blur' }],
+        password: [{ required: true, message: '密码不能为空', trigger: 'blur' }],
       },
     };
   },
@@ -84,22 +81,35 @@ export default {
     handleSubmit() {
       this.$router.push('home/main');
     },
+    test() {
+      const name = 'The Window'; // eslint-disable-line no-unused-vars
+      const object = {
+        name: 'My Object',
+        getnamefunc: function () { // eslint-disable-line object-shorthand
+          const that = this;
+          return function () {
+            return that.name;
+          };
+        },
+      };
+      console.log(object.getnamefunc()());
+    },
   },
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.login{
+.login {
   width: 100%;
   height: 720px;
-  background-image: url('../../images/login_bg.jpg');
+  background-image: url("../../images/login_bg.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
 }
 
-.login-con{
+.login-con {
   position: absolute;
   right: 160px;
   top: 50%;
@@ -107,9 +117,9 @@ export default {
   width: 300px;
 }
 
-.login-tip{
+.login-tip {
   font-size: 10px;
   text-align: center;
   color: #c3c3c3;
-        }
+}
 </style>
